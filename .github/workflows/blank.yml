@@ -15,15 +15,18 @@ jobs:
     - name: 📥 Checkout code
       uses: actions/checkout@v4
       
-    - name: ☕ Set up JDK 11
+    - name: ☕ Set up JDK 17
       uses: actions/setup-java@v4
       with:
-        java-version: '11'
+        java-version: '17'
         distribution: 'temurin'
         
     - name: �� Set up Android SDK
       uses: android-actions/setup-android@v3
-      
+      with:
+        api-level: 33
+        build-tools: 33.0.2
+        
     - name: 🔧 Cache Gradle packages
       uses: actions/cache@v3
       with:
@@ -64,4 +67,4 @@ jobs:
         echo "�� CTF Quiz Challenge APK Build Complete!"
         echo "�� APK Location: app/build/outputs/apk/debug/"
         echo "🎯 Hidden Flag: ICSSC{Hidden_Flag_Deep_In_The_Code_Reverse_Me}"
-        echo "�� Download from Actions tab → Artifacts"
+        echo "📥 Download from Actions tab → Artifacts"
